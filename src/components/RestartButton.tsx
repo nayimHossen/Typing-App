@@ -18,7 +18,7 @@ const RestartButton = ({
     <button
       tabIndex={-1} // to prevent focus
       ref={buttonRef}
-      className={`block rounded px-8 py-2 hover:bg-slate-700/50  ${className}`}
+      className={`btn btn-secondary text-base-100 block rounded px-8 py-2 hover:bg-slate-900  ${className}`}
       onClick={handleClick}
     >
       Restart

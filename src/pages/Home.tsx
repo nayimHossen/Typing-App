@@ -5,12 +5,6 @@ import Results from "../components/Results";
 import UserTypings from "../components/UserTypings";
 import useEngine from "../hooks/useEngine";
 import { calculateAccuracyPercentage } from "../utils/helpers";
-// import GeneratedWords from "./components/GeneratedWords";
-// import RestartButton from "./components/RestartButton";
-// import Results from "./components/Results";
-// import UserTypings from "./components/UserTypings";
-// import useEngine from "./hooks/useEngine";
-// import { calculateAccuracyPercentage } from "./utils/helpers";
 
 const Home = () => {
   const { words, typed, timeLeft, errors, state, restart, totalTyped } =
