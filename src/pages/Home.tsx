@@ -1,7 +1,9 @@
 import React from "react";
+import Div from "../components/Div";
 import GeneratedWords from "../components/GeneratedWords";
 import RestartButton from "../components/RestartButton";
 import Results from "../components/Results";
+import KeyBord from "../components/KeyBord";
 import UserTypings from "../components/UserTypings";
 import useEngine from "../hooks/useEngine";
 import { calculateAccuracyPercentage } from "../utils/helpers";
@@ -10,12 +12,17 @@ const Home = () => {
   const { words, typed, timeLeft, errors, state, restart, totalTyped } =
     useEngine();
 
+  const persentage = calculateAccuracyPercentage(errors, totalTyped).toFixed(0);
+
   return (
-    <div className="md:flex container px-5">
-      <div className="w-[20%] text-center">
-        <h2>Left</h2>
+    <div className="md:flex md:gap-x-10 container mx-auto">
+      <div className="w-full md:w-[20%] text-center">
+        <Div type="WPM" total={totalTyped} />
+        <Div type="Total Typed" total={totalTyped} />
+        <Div type="Mistack" total={errors} />
+        <Div type="Aaccuracy" total={`${persentage} %`} />
       </div>
-      <div className="w-[60%]">
+      <div className="w-full md:w-[80%]">
         {" "}
         <CountdownTimer timeLeft={timeLeft} />
         <WordsContainer>
@@ -31,16 +38,14 @@ const Home = () => {
           className={"mx-auto mt-10 text-slate-500"}
           onRestart={restart}
         />
-        <Results
+        <KeyBord />
+        {/* <Results
           className="mt-10"
           state={state}
           errors={errors}
           accuracyPercentage={calculateAccuracyPercentage(errors, totalTyped)}
           total={totalTyped}
-        />
-      </div>
-      <div className="w-[20%] text-center">
-        <h2>Right</h2>
+        /> */}
       </div>
     </div>
   );
