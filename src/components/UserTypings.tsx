@@ -1,4 +1,5 @@
 import cn from "classnames";
+import Caret from "./Caret";
 
 const UserTypings = ({
   userInput,
@@ -20,6 +21,7 @@ const UserTypings = ({
           expected={words[index]}
         />
       ))}
+      <Caret />
     </div>
   );
 };
